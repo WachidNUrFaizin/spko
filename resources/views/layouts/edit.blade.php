@@ -12,7 +12,7 @@
             <select name="employee" id="employee" class="form-control">
                 <option value="">--Pilih Operator--</option>
                 @foreach($employees as $emp)
-                    <option value="{{ $emp->id_employee }}" {{ $spko->employee == $emp->id_employee ? 'selected' : '' }}>{{ $emp->nama }} ({{ $emp->rank }})</option>
+                    <option value="{{ $emp->id_employee }}" {{ $spko->employee == $emp->id_employee ? 'selected' : '' }}>{{ $emp->name }} ({{ $emp->rank }})</option>
                 @endforeach
             </select>
         </div>

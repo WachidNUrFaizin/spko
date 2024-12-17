@@ -39,7 +39,7 @@
 
 <table class="info">
     <tr>
-        <td><strong>Operator:</strong> {{ $spko->employeeRelation->nama }} ({{ $spko->employeeRelation->rank }})</td>
+        <td><strong>Operator:</strong> {{ $spko->employeeRelation->name }} ({{ $spko->employeeRelation->rank }})</td>
         <td><strong>Tanggal Transaksi:</strong> {{ $spko->trans_date }}</td>
     </tr>
     <tr>

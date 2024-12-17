@@ -10,7 +10,7 @@ class Employee extends Model
     use HasFactory;
     protected $primaryKey = 'id_employee';
     protected $table = 'employees';
-    protected $fillable = ['entry_date','nama','rank','gender'];
+    protected $fillable = ['entry_date','name','rank','gender'];
     public $timestamps = true;
 
     public function spkos()

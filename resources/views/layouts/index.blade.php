@@ -21,7 +21,7 @@
             <tr>
                 <td>{{ $spko->id_spko }}</td>
                 <td>{{ $spko->sw }}</td>
-                <td>{{ $spko->employeeRelation->nama }}</td>
+                <td>{{ $spko->employeeRelation->name }}</td>
                 <td>{{ $spko->trans_date }}</td>
                 <td>{{ $spko->process }}</td>
                 <td>

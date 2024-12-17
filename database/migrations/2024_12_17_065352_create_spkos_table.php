@@ -16,7 +16,7 @@ return new class extends Migration
             $table->text('remarks')->nullable();
             $table->integer('employee')->unsigned();
             $table->date('trans_date');
-            $table->string('process', 10);
+            $table->string('process', 20);
             $table->string('sw', 25)->nullable();
             $table->timestamps();
 
