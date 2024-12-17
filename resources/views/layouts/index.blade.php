@@ -3,7 +3,7 @@
 @section('content')
     <h1>List SPKO</h1>
 
-    <a href="{{ route('spko.create') }}" class="btn btn-primary">Create New SPKO</a>
+    <a href="{{ route('layouts.create') }}" class="btn btn-primary">Create New SPKO</a>
 
     <table class="table table-bordered">
         <thead>
@@ -25,12 +25,12 @@
                 <td>{{ $spko->trans_date }}</td>
                 <td>{{ $spko->process }}</td>
                 <td>
-                    <a href="{{ route('spko.edit', $spko->id_spko) }}" class="btn btn-sm btn-warning">Edit</a>
-                    <form action="{{ route('spko.destroy', $spko->id_spko) }}" method="POST" style="display:inline;">
+                    <a href="{{ route('layouts.edit', $spko->id_spko) }}" class="btn btn-sm btn-warning">Edit</a>
+                    <form action="{{ route('layouts.destroy', $spko->id_spko) }}" method="POST" style="display:inline;">
                         @csrf @method('DELETE')
                         <button class="btn btn-sm btn-danger" onclick="return confirm('Delete?')">Delete</button>
                     </form>
-                    <a href="{{ route('spko.print', $spko->id_spko) }}" class="btn btn-sm btn-info" target="_blank">Print</a>
+                    <a href="{{ route('layouts.print', $spko->id_spko) }}" class="btn btn-sm btn-info" target="_blank">Print</a>
                 </td>
             </tr>
         @endforeach

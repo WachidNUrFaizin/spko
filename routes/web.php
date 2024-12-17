@@ -14,12 +14,11 @@ use App\Http\Controllers\SpkoController;
 |
 */
 
-Route::get('/spko', [SpkoController::class, 'index'])->name('spko.index');
-//Route::get('/spko', [\App\Http\Controllers\SpkoController::class, 'index'])->name('spko.index');
-Route::get('/spko/create', [SpkoController::class, 'create'])->name('spko.create');
-Route::post('/spko', [SpkoController::class, 'store'])->name('spko.store');
-Route::get('/spko/{id_spko}/edit', [SpkoController::class, 'edit'])->name('spko.edit');
-Route::put('/spko/{id_spko}', [SpkoController::class, 'update'])->name('spko.update');
-Route::delete('/spko/{id_spko}', [SpkoController::class, 'destroy'])->name('spko.destroy');
+Route::get('/', [SpkoController::class, 'index'])->name('layouts.index');
+Route::get('/layouts/create', [SpkoController::class, 'create'])->name('layouts.create');
+Route::post('/layouts', [SpkoController::class, 'store'])->name('layouts.store');
+Route::get('/layouts/{id_spko}/edit', [SpkoController::class, 'edit'])->name('layouts.edit');
+Route::put('/layouts/{id_spko}', [SpkoController::class, 'update'])->name('layouts.update');
+Route::delete('/layouts/{id_spko}', [SpkoController::class, 'destroy'])->name('layouts.destroy');
 
-Route::get('/spko/{id_spko}/print', [SpkoController::class, 'print'])->name('spko.print');
+Route::get('/layouts/{id_spko}/print', [SpkoController::class, 'print'])->name('layouts.print');

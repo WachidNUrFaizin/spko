@@ -14,7 +14,7 @@ class SpkoController extends Controller
     public function index()
     {
         $spkos = Spko::with('employeeRelation')->get();
-        return view('spko.index', compact('spkos'));
+        return view('layouts.index', compact('spkos'));
     }
 
     public function create()
@@ -22,7 +22,7 @@ class SpkoController extends Controller
         $employees = Employee::all();
         $products = Product::all();
         $processes = ['Cor','Brush','Bombing','Slep'];
-        return view('spko.create', compact('employees','products','processes'));
+        return view('layouts.create', compact('employees','products','processes'));
     }
 
     public function store(Request $request)
@@ -68,7 +68,7 @@ class SpkoController extends Controller
             }
 
             DB::commit();
-            return redirect()->route('spko.index')->with('success','SPKO created successfully!');
+            return redirect()->route('layouts.index')->with('success','SPKO created successfully!');
         } catch (\Exception $e) {
             DB::rollback();
             return back()->withErrors($e->getMessage());
@@ -81,7 +81,7 @@ class SpkoController extends Controller
         $employees = Employee::all();
         $products = Product::all();
         $processes = ['Cor','Brush','Bombing','Slep'];
-        return view('spko.edit', compact('spko','employees','products','processes'));
+        return view('layouts.edit', compact('spko','employees','products','processes'));
     }
 
     public function update(Request $request, $id_spko)
@@ -118,7 +118,7 @@ class SpkoController extends Controller
             }
 
             DB::commit();
-            return redirect()->route('spko.index')->with('success','SPKO updated successfully!');
+            return redirect()->route('layouts.index')->with('success','SPKO updated successfully!');
         } catch(\Exception $e) {
             DB::rollback();
             return back()->withErrors($e->getMessage());
@@ -129,7 +129,7 @@ class SpkoController extends Controller
     {
         $spko = Spko::findOrFail($id_spko);
         $spko->delete();
-        return redirect()->route('spko.index')->with('success','SPKO deleted successfully!');
+        return redirect()->route('layouts.index')->with('success','SPKO deleted successfully!');
     }
 
     public function print($id_spko)
@@ -137,7 +137,7 @@ class SpkoController extends Controller
         $spko = Spko::with('employeeRelation','items.product')->findOrFail($id_spko);
         // Anda dapat membuat view khusus untuk print, atau generate PDF menggunakan dompdf
         // Misal:
-        $pdf = \PDF::loadView('spko.print', compact('spko'));
+        $pdf = \PDF::loadView('layouts.print', compact('spko'));
         return $pdf->stream('spko_'.$spko->id_spko.'.pdf');
     }
 }
